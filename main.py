@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from api import API_KEY
 import requests
 
 # get gps coordinates from geopy
@@ -6,7 +7,7 @@ import json
 
 app = Flask(__name__)
 
-API_KEY = "04c9f4944719cf8c730037388318c80c"
+API_KEY = API_KEY
 API_URL = "http://api.openweathermap.org/data/2.5/weather?q={}&mode=json&units=metric&appid={}"
 
 
