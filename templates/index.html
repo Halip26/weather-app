@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link
       rel="shortcut icon"
@@ -13,7 +14,6 @@
       type="text/css"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
       rel="stylesheet"
@@ -21,7 +21,8 @@
   </head>
   <body>
     <div class="wrapper">
-      <header><i class="bx bx-left-arrow-alt"></i>Weather App</header>
+      <header>Weather App</header>
+      <div class="lines"></div>
       <section class="input-part">
         <p class="info-txt"></p>
         <div class="content">
@@ -42,6 +43,7 @@
       </section>
     </div>
 
+    <!-- The temperature & location -->
     <div>
       <section class="weather-part">
         <img
