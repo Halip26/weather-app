@@ -1,8 +1,9 @@
 # **Weather Application Website**
 
-**This Flask application showing the Weather, allowing you to:**
+**This Flask app displays the weather, allowing you to:**
 
-- To show the weather
+- To display the weather
+- Enter the location
 
 ## **Getting Started**
 
