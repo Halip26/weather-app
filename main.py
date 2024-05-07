@@ -19,7 +19,7 @@ def query_api(city):
 
 @app.route("/")
 def index():
-    resp = query_api("London")
+    resp = query_api("Jakarta")
     print(resp)
     city = resp["name"]
     temp = resp["main"]["temp"]
@@ -49,8 +49,8 @@ def result():
         if len(resp) <= 2:
             error = resp["message"]
         else:
-            temp = resp["main"]["temp"]
             city = resp["name"]
+            temp = resp["main"]["temp"]
             country = resp["sys"]["country"]
             weather = resp["weather"][0]["description"]
             iconcode = resp["weather"][0]["icon"]
