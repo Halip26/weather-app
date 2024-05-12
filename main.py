@@ -27,7 +27,7 @@ def query_api(city):
 
 @app.route("/")
 def index():
-    resp = query_api("Jakarta")
+    resp = query_api("Makassar")
     print(resp)
     city = resp["name"]
     temp = resp["main"]["temp"]
