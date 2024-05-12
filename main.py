@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request
 from api import API_KEY
 import requests
+import os
 
-# get gps coordinates from geopy
+# get gps coordinate from geopy
 import json
 
 app = Flask(__name__)
@@ -10,10 +11,17 @@ app = Flask(__name__)
 API_KEY = API_KEY
 API_URL = "http://api.openweathermap.org/data/2.5/weather?q={}&mode=json&units=metric&appid={}"
 
+output_directory = "weather_json/"
 
+os.makedirs(output_directory, exist_ok=True)
+
+
+# function to access query api of all cities
 def query_api(city):
     print(API_URL.format(city, API_KEY))
     data = requests.get(API_URL.format(city, API_KEY)).json()
+    with open(f"weather_json/{city}_weather.json", "w") as json_file:
+        json.dump(data, json_file)
     return data
 
 
@@ -28,6 +36,7 @@ def index():
     iconcode = resp["weather"][0]["icon"]
     humidity = resp["main"]["humidity"]
     feels_like = resp["main"]["feels_like"]
+
     return render_template(
         "index.html",
         city=city,
@@ -56,6 +65,7 @@ def result():
             iconcode = resp["weather"][0]["icon"]
             humidity = resp["main"]["humidity"]
             feels_like = resp["main"]["feels_like"]
+
             return render_template(
                 "index.html",
                 city=city,
@@ -69,5 +79,5 @@ def result():
     return render_template("index.html", error=error)
 
 
-if "__main__" == __name__:
-    app.run(debug=True, port="8081")
+if __name__ == "__main__":
+    app.run(debug=True, port=8081)
