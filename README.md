@@ -1,5 +1,7 @@
 # **Weather Application Website**
 
+This is weather web application created using Flask python
+
 **This Flask app displays the weather, allowing you to:**
 
 - To display the weather
