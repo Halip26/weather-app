@@ -191,7 +191,7 @@ body {
   color: #5dbbff;
   font-size: 40px;
 }
-.column.humidity {
+.column .humidity {
   border-left: 1px solid #ccc;
 }
 .column .details {
@@ -218,3 +218,7 @@ body {
 .title {
   font-size: 60px;
 }
+
+/* responsive for iphone 12 pro */
+/* @media only screen and (max-width: 390px) {
+} */
